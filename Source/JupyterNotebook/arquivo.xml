@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<data>
+  <row>
+    <name>John Doe</name>
+    <escolaridade>High School</escolaridade>
+    <notas>[85, 90, 78]</notas>
+    <regiao>North</regiao>
+    <idade>17</idade>
+  </row>
+  <row>
+    <name>Jane Smith</name>
+    <escolaridade>College</escolaridade>
+    <notas>[92, 88, 95]</notas>
+    <regiao>South</regiao>
+    <idade>20</idade>
+  </row>
+  <row>
+    <name>Alex Johnson</name>
+    <escolaridade>High School</escolaridade>
+    <notas>[76, 82, 70]</notas>
+    <regiao>East</regiao>
+    <idade>16</idade>
+  </row>
+  <row>
+    <name>Emily Davis</name>
+    <escolaridade>College</escolaridade>
+    <notas>[89, 91, 87]</notas>
+    <regiao>West</regiao>
+    <idade>22</idade>
+  </row>
+  <row>
+    <name>Michael Brown</name>
+    <escolaridade>High School</escolaridade>
+    <notas>[80, 75, 82]</notas>
+    <regiao>North</regiao>
+    <idade>18</idade>
+  </row>
+  <row>
+    <name>Sophia White</name>
+    <escolaridade>College</escolaridade>
+    <notas>[94, 96, 90]</notas>
+    <regiao>South</regiao>
+    <idade>21</idade>
+  </row>
+  <row>
+    <name>Daniel Martinez</name>
+    <escolaridade>High School</escolaridade>
+    <notas>[72, 68, 75]</notas>
+    <regiao>East</regiao>
+    <idade>17</idade>
+  </row>
+  <row>
+    <name>Olivia Taylor</name>
+    <escolaridade>College</escolaridade>
+    <notas>[87, 89, 92]</notas>
+    <regiao>West</regiao>
+    <idade>19</idade>
+  </row>
+  <row>
+    <name>Ethan Anderson</name>
+    <escolaridade>High School</escolaridade>
+    <notas>[78, 80, 74]</notas>
+    <regiao>North</regiao>
+    <idade>16</idade>
+  </row>
+  <row>
+    <name>Ava Wilson</name>
+    <escolaridade>College</escolaridade>
+    <notas>[91, 93, 88]</notas>
+    <regiao>South</regiao>
+    <idade>20</idade>
+  </row>
+</data>
