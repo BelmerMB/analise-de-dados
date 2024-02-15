@@ -1,4 +1,4 @@
-# Nome do Projeto
+# Aprendendo Análise de dados com python
 
 Projetos e estudos do curso de análise de dados com python oferecido pelo SENAI FATESG
 
