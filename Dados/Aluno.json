@@ -1,0 +1,73 @@
+[
+      {
+        "name": "John Doe",
+        "escolaridade": "High School",
+        "notas": [85, 90, 78],
+        "regiao": "North",
+        "idade": 17
+      },
+      {
+        "name": "Jane Smith",
+        "escolaridade": "College",
+        "notas": [92, 88, 95],
+        "regiao": "South",
+        "idade": 20
+      },
+      {
+        "name": "Alex Johnson",
+        "escolaridade": "High School",
+        "notas": [76, 82, 70],
+        "regiao": "East",
+        "idade": 16
+      },
+      {
+        "name": "Emily Davis",
+        "escolaridade": "College",
+        "notas": [89, 91, 87],
+        "regiao": "West",
+        "idade": 22
+      },
+      {
+        "name": "Michael Brown",
+        "escolaridade": "High School",
+        "notas": [80, 75, 82],
+        "regiao": "North",
+        "idade": 18
+      },
+      {
+        "name": "Sophia White",
+        "escolaridade": "College",
+        "notas": [94, 96, 90],
+        "regiao": "South",
+        "idade": 21
+      },
+      {
+        "name": "Daniel Martinez",
+        "escolaridade": "High School",
+        "notas": [72, 68, 75],
+        "regiao": "East",
+        "idade": 17
+      },
+      {
+        "name": "Olivia Taylor",
+        "escolaridade": "College",
+        "notas": [87, 89, 92],
+        "regiao": "West",
+        "idade": 19
+      },
+      {
+        "name": "Ethan Anderson",
+        "escolaridade": "High School",
+        "notas": [78, 80, 74],
+        "regiao": "North",
+        "idade": 16
+      },
+      {
+        "name": "Ava Wilson",
+        "escolaridade": "College",
+        "notas": [91, 93, 88],
+        "regiao": "South",
+        "idade": 20
+      }
+    ]
+  
