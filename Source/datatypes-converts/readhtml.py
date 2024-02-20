@@ -1,5 +1,5 @@
 import pandas
 
-url = 'https://www.sump.org/notes/request/'
+url = 'https://www.sump.org/notes/refquest/'
 leitor = pandas.read_html(url)
 print(leitor)

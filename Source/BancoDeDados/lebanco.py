@@ -2,7 +2,7 @@ import sqlite3
 
 db = sqlite3.connect('test.db')
 
-sql = "SELECT name from material"
+sql = "SELECT * from material"
 cursor=db.cursor()
 cursor.execute(sql)
 while True:
