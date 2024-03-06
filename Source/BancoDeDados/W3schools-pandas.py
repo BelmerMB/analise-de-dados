@@ -74,6 +74,46 @@ var = {
 # arq['Calories'].fillna('robson', inplace=True) #substitui qualquer NaN por 666
 # print(arq)
 
-x = arq['Calories'].mean()
-arq['Calories'].fillna(x, inplace=True)
-print(arq)
+# x = arq['Calories'].mean()
+# arq['Calories'].fillna(x, inplace=True)
+# print(arq)
+
+
+# #TRANSFORMANDO DATAS E RETIRANDO DADOS INUTEIS OU MODIFICANDO ELES
+# arq['Date'] = pd.to_datetime(arq['Date'], format='mixed', errors='coerce')
+# arq.dropna(inplace=True)
+# # arq.dropna(subset=['Calories'], inplace=True)
+# for x in arq.index:
+#     if arq.loc[x, "Duration"] > 120:
+#         arq.drop(x, inplace=True) 
+#         #arq.loc[x, "Duration"] = 60 #modifico o valor incoerente para algum valor conhecido.
+# arq.drop_duplicates(inplace=True)
+# print(arq)
+
+arquivo = pd.read_csv('./Dados/data.csv', sep=',')
+# print(arquivo.duplicated())
+if arquivo.duplicated().all():
+    print('duplicado')
+
+# print(arquivo[arquivo.duplicated()])
+arquivo.drop_duplicates(inplace=True)
+# print("apos limpeza", arquivo[arquivo.duplicated()])
+arquivo.dropna(inplace=True)
+# print(arquivo.duplicated)
+# print("Filtrados \n\n------------------\n\n\t")
+for x in arquivo.index:
+  if arquivo.loc[x, 'Duration'] > 90:
+    arquivo.drop(x, inplace=True)
+
+# print(arquivo)
+# arquivo.to_csv('./Dados/data-limpo.csv', sep=',', index=False)
+print(arquivo.corr())
+import matplotlib.pyplot as plt
+
+arquivo.plot(x='Duration', y='Calories', kind='scatter')
+plt.show()
+
+x = '  hello  '
+print(x)
+print(x)
+x.strip()

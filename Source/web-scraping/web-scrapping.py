@@ -1,13 +1,14 @@
-from bs4 import BeautifulSoup
+'''
+aprendendo webscrapping
+learning source: freecodecamp | 
+'''
+
 import requests
+from bs4 import BeautifulSoup
+res = requests.get("https://codedamn-classrooms.github.io/webscraper-python-codedamn-classroom-website/")
 
-url = 'https://www.climatempo.com.br/previsao-do-tempo/cidade/88/goiania-go'
-
-r = requests.get(url)
-#print(r.content)
-
-if r.status_code == 200:
-        soup = BeautifulSoup(r.content, 'html.parser')
-        #print(soup.prettify())
-        para = soup.find('div')
-        print(para)
+if res.status_code == 200:
+        soup = BeautifulSoup(res.content, 'html.parser')
+        title = soup.text.title
+        print(title)
+        head = soup.__

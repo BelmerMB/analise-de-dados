@@ -1,2 +1,4 @@
 .vscode
-
+*.db
+CS50
+base_python
