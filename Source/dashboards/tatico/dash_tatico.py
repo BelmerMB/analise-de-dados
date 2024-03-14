@@ -21,62 +21,58 @@ df = pd.read_csv('sales_data.csv', sep=',', encoding='Windows-1252')
 st.set_page_config(
     page_title="DashBoard",
     page_icon="👋",
+    layout="wide",
+    initial_sidebar_state="expanded",
+    menu_items={
+        'About': "#test"
+    }
 )
 
-st.write("# Welcome to dashboard! 👋")
-col1, col2 = st.columns(2)
-with col1:
-    st.header("Column 1")
-    st.write("Some data")
-    st.image("https://static.streamlit.io/examples/cat.jpg", width=128)
+st.write("# Tatic dashboard! 👋")
+# col1, col2 = st.columns(2)
+# with col1:
+#     st.header("Column 1")
+#     st.write("Some data")
+#     st.image("https://static.streamlit.io/examples/cat.jpg", width=128)
 
-with col2:
-    st.header("Column 2")
-    st.write("Some more data")
+# with col2:
+#     st.header("Column 2")
+#     st.write("Some more data")
+# with st.chat_message("user"):
+#     st.write("Hello 👋")
+#     st.chat_input("Say something")
+#     st.write('resposta')
+# # st.toast('Mr Stay-Puft')
+# with st.container():
+#     st.write("This is inside a container")
+# st.sidebar.success('select a demo')
+# st.sidebar.success("In working.")
+# # Just add it after st.sidebar:
+# a = st.sidebar.radio('Choose:',[1,2])
+# #progresso da barra
+# bar = st.progress(50)
+# time.sleep(3)
+# bar.progress(100)
+# x = st.slider('x', min_value=1, max_value=15)
+# st.write(x, 'squared is', x*x)
 
-st.markdown("""
-<style>
-body
-{
-    background-color: blue;
-}
-</style>
-""", unsafe_allow_html=True
+st.markdown(
+    f"""
+    <style>
+        .stPlotlyChart {{
+            display: flex;
+            justify-content: center;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True,
 )
 
-st.sidebar.success('select a demo')
-st.sidebar.success("In working.")
-# Just add it after st.sidebar:
-a = st.sidebar.radio('Choose:',[1,2])
-
-with st.chat_message("user"):
-    st.write("Hello 👋")
-    st.chat_input("Say something")
-    st.write('resposta')
-# st.toast('Mr Stay-Puft')
-
-bar = st.progress(50)
-time.sleep(3)
-bar.progress(100)
-with st.container():
-    st.write("This is inside a container")
-
-
-# st.button('Aperte aqui!', type='primary')
-# if st.button('say heelo'):
-#     st.write('putz')
-# else:
-#     st.write('saiu')
-
-
-
-
-#----------------apresentação dos dados------------------
-x = st.slider('x', min_value=1, max_value=15)
-st.write(x, 'squared is', x*x)
-sales_country = df.groupby(['COUNTRY', 'YEAR_ID'])['SALES'].sum().reset_index()
-sales_USA = salesPerCountry(df, 'USA')
-sales_country.sort_values(by='YEAR_ID', inplace=True)
+#----------------Manipulação dos dados------------------
+sales_country_total = df.groupby(['COUNTRY','YEAR_ID'])['SALES'].sum().reset_index() #agrupando os dados por pais e ano
+sales_country = df.groupby(['COUNTRY','PRODUCTLINE'])['SALES'].sum().reset_index() #agrupando os dados por pais e ano
+sales_USA = salesPerCountry(df, 'USA')#filtrando por pais. retorna os valores agrupados.
+# sales_country.sort_values(by='SALES', inplace=True) #ordem crescente dos dados
 
 country_iso_mapping = {
     'USA': 'USA',
@@ -100,31 +96,33 @@ country_iso_mapping = {
     'Ireland': 'IRL'
 }
 
+# st.markdown("## ")
+st.markdown(
+    "<h2 style='text-align: center;'>Sales per country</h2>",
+    unsafe_allow_html=True
+)
+st.bar_chart(sales_country_total, x='COUNTRY', y='SALES', color='COUNTRY', use_container_width=True,height=600)
+
+# st.scatter_chart(sales_country, x='COUNTRY', y='SALES', color='PRODUCTLINE')
 # Create a scatter_geo plot using ISO codes
-fig = px.choropleth(sales_country, 
-                     locations=sales_country['COUNTRY'].map(country_iso_mapping),  # Map country names to ISO codes
-                    #  size='SALES',
-                    color_continuous_scale=px.colors.sequential.Plasma,
-                     color='COUNTRY',
-                     projection='natural earth',
-                     animation_frame="YEAR_ID",
-                     title='Scatter Geo Plot with Custom Country Names'
-                    )
+fig = px.sunburst(sales_country, path=['COUNTRY', 'PRODUCTLINE'], values="SALES", height=800)
 
 fig.update_layout(
-    font=dict(size=22),
-    title_text='Vendas anual mundial')
+    font=dict(size=18),
+    title_text='Vendas anual mundial',
+    margin=dict(t=50, l=50, r=50, b=50))
+
+
+st.markdown(
+    f"""
+    <style>
+        .stPlotlyChart {{
+            display: flex;
+            justify-content: center;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 st.plotly_chart(fig, se_container_width=True)
-
-
-
-
-
-
-# fig = px.scatter_geo(sales_country, locations="COUNTRY", color="SALES",
-#                      hover_name="COUNTRY", projection="natural earth")
-# fig.show()
-# fig = px.sunburst(df, path=['COUNTRY', 'CITY'], values='SALES', color='COUNTRY')
-
-# st.plotly_chart(fig, use_container_width=True)
